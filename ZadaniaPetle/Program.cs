@@ -22,12 +22,14 @@ while (run)
 
     switch (exercise)
     {
+
         case 0:
             {
                 Console.WriteLine("\n----------PROGRAM ZAKOŃCZONY----------\n");
                 run = false;
                 continue;
             }
+
         case 1:
             //1. Napisz program, który sprawdzi ile jest liczb pierwszych w zakresie 0 – 100.
             {
@@ -36,7 +38,7 @@ while (run)
                 for (int i = 2; i <= 100; i++)
                 {
                     bool primary = true;
-                    for (int j = 2; j < i; j++)
+                    for (int j = 2; j <= i/j; j++)
                     {
                         if (i % j == 0)
                         {
@@ -53,6 +55,7 @@ while (run)
                 Console.WriteLine("\nLiczb pierwszych w zakresie 0 - 100 jest: {0}", numberOfPrimaries);
                 break;
             }
+
         case 2:
             //2. Napisz program, w którym za pomocą pętli do…while znajdziesz wszystkie liczby parzyste z zakresu 0 – 1000.
             {
@@ -67,6 +70,7 @@ while (run)
                 Console.WriteLine();
                 break;
             }
+
         case 3:
             //3. Napisz program, który zaimplementuje ciąg Fibonacciego i wyświetli go na ekranie.
             {
@@ -89,6 +93,7 @@ while (run)
                 Console.WriteLine();
                 break;
             }
+
         case 4:
             //4. Napisz program, który po podaniu liczby całkowitej wyświetli piramidę liczb od 1 do podanej liczby w formie jak poniżej:
             //1
@@ -117,6 +122,7 @@ while (run)
                 else Console.WriteLine("   Nie udało się odczytać podanej liczby.");
                 break;
             }
+
         case 5:
             //5.Napisz program, który dla liczb od 1 do 20 wyświetli na ekranie ich 3 potęgę.
             {
@@ -127,6 +133,7 @@ while (run)
                 }
                 break;
             }
+
         case 6:
             //6. Napisz program, który dla liczb od 0 do 20 obliczy sumę wg wzoru:
             //1 + 1/2 + 1/3 + 1/4 itd.
@@ -145,6 +152,7 @@ while (run)
                 }
                 break;
             }
+
         case 7:
             //7. Napisz program, który dla liczby zadanej przez użytkownika narysuje diament o krótszej przekątnej o długości wprowadzonej przez użytkownika i wg wzoru:
             //    *
@@ -180,6 +188,7 @@ while (run)
                 else Console.WriteLine("   Nie udało się odczytać długości przekątnej.");
                 break;
             }
+
         case 8:
             //8. Napisz program, który odwróci wprowadzony przez użytkownika ciąg znaków. Np.
             //Testowe dane:
@@ -188,9 +197,11 @@ while (run)
             //Gfedcba
             {
                 Console.WriteLine("8. Napisz program, który odwróci wprowadzony przez użytkownika ciąg znaków.\n");
+                
                 Console.WriteLine("   Np.:");
                 string? text = "Abcdefg";
                 Console.WriteLine("\tWprowadzony ciąg znaków: {0}", text);
+               
                 string reverse = "";
                 for (int i = text.Length - 1; i >= 0; i--)
                 {
@@ -199,9 +210,13 @@ while (run)
                     else c = char.ToUpper(c);
                     reverse += c;
                 }
+
                 Console.WriteLine("\tWynik: {0}", reverse);
+
+
                 Console.Write("\n   Podaj ciąg znaków: ");
                 text = Console.ReadLine();
+
                 reverse = "";
                 if (text != null)
                 {
@@ -213,14 +228,18 @@ while (run)
                         reverse += c;
                     }
                 }
+
                 Console.WriteLine("   Wynik: {0}", reverse);
                 break;
             }
+
         case 9:
             //9. Napisz program, który zamieni liczbę dziesiętną na liczbę binarną.
             {
                 Console.WriteLine("9. Napisz program, który zamieni liczbę dziesiętną na liczbę binarną.\n");
+                
                 Console.Write("   Podaj dodatnią liczbę całkowitą w zapisie dziesiętnym: ");
+               
                 if (int.TryParse(Console.ReadLine(), out int dec) && dec >= 0)
                 {
                     int remainder = dec;
@@ -231,19 +250,24 @@ while (run)
                         bin = remainder % 2 + bin;
                         remainder /= 2;
                     }
+
                     Console.WriteLine("   Liczba {0} w zapisie binarnym: {1}", dec, bin);
                 }
                 else Console.WriteLine("   Nie udało się odczytać podanej liczby.");
                 break;
             }
+
         case 10:
             //10. Napisz program, który znajdzie najmniejszą wspólną wielokrotność dla zadanych 2 liczb.
             {
                 Console.WriteLine("10. Napisz program, który znajdzie najmniejszą wspólną wielokrotność dla zadanych 2 liczb.\n");
+                
                 Console.Write("   Pierwsza liczba: ");
                 bool success = int.TryParse(Console.ReadLine(), out int firstNumber);
+               
                 Console.Write("   Druga liczba: ");
                 success &= int.TryParse(Console.ReadLine(), out int secondNumber);
+                
                 if (success)
                 {
                     if(firstNumber <= 0 || secondNumber <= 0)
@@ -251,12 +275,15 @@ while (run)
                         Console.WriteLine("   Podane liczby muszą być większe od zera.");
                         break;
                     }
+
                     int lcm = 1;
                     int firstRemainder = firstNumber;
                     int secondRemainder = secondNumber;
                     int minNumber;
+
                     if (firstNumber < secondNumber) minNumber = firstNumber;
                     else minNumber = secondNumber;
+
                     for (int i = 2; i < minNumber; i++)
                     {
                         while (firstRemainder % i == 0 || secondRemainder % i == 0)
@@ -265,14 +292,17 @@ while (run)
                             if (firstRemainder % i == 0) firstRemainder /= i;
                             if (secondRemainder % i == 0) secondRemainder /= i;
                         }
+
                         if (firstRemainder == 1 || secondRemainder == 1) break;
                     }
+
                     lcm *= firstRemainder * secondRemainder;
                     Console.WriteLine("   NWW: " + lcm);
                 }
                 else Console.WriteLine("   Nie udało się odczytać podanych liczb.");
                 break;
             }
+
         default:
             {
                 Console.WriteLine("   Nie rozpoznano numeru ćwiczenia. Podaj numer ponownie...\n");
