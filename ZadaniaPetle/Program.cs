@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text;
+
 bool run = true;
 while (run)
 {
@@ -201,14 +203,14 @@ while (run)
                 Console.WriteLine("   Np.:");
                 string? text = "Abcdefg";
                 Console.WriteLine("\tWprowadzony ciąg znaków: {0}", text);
-               
-                string reverse = "";
+
+                StringBuilder reverse = new StringBuilder();
                 for (int i = text.Length - 1; i >= 0; i--)
                 {
                     char c = text[i];
                     if (reverse.Length > 0) c = char.ToLower(c);
                     else c = char.ToUpper(c);
-                    reverse += c;
+                    reverse.Append(c);
                 }
 
                 Console.WriteLine("\tWynik: {0}", reverse);
@@ -217,7 +219,7 @@ while (run)
                 Console.Write("\n   Podaj ciąg znaków: ");
                 text = Console.ReadLine();
 
-                reverse = "";
+                reverse.Clear();
                 if (text != null)
                 {
                     for (int i = text.Length - 1; i >= 0; i--)
@@ -225,7 +227,7 @@ while (run)
                         char c = text[i];
                         if (reverse.Length > 0) c = char.ToLower(c);
                         else c = char.ToUpper(c);
-                        reverse += c;
+                        reverse.Append(c);
                     }
                 }
 
