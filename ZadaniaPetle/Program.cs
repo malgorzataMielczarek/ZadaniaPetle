@@ -74,7 +74,7 @@ while (run)
                 Console.Write("   Podaj ilość wyrazów ciągu, które chcesz uzyskać: ");
                 _ = int.TryParse(Console.ReadLine(), out int quantity);
                 int first = 0, second = 1;
-                for(int n = 0; n < quantity; n++)
+                for (int n = 0; n < quantity; n++)
                 {
                     if (n == 0) Console.Write(" 0 ");
                     else if (n == 1) Console.Write(" 1 ");
@@ -121,7 +121,7 @@ while (run)
             //5.Napisz program, który dla liczb od 1 do 20 wyświetli na ekranie ich 3 potęgę.
             {
                 Console.WriteLine("5. Napisz program, który dla liczb od 1 do 20 wyświetli na ekranie ich 3 potęgę.\n");
-                for(int i = 1; i <= 20; i++)
+                for (int i = 1; i <= 20; i++)
                 {
                     Console.WriteLine($"\t{i}\t->\t{i * i * i}");
                 }
@@ -133,7 +133,7 @@ while (run)
             {
                 Console.WriteLine("6. Napisz program, który dla liczb od 0 do 20 obliczy sumę wg wzoru: 1 + 1/2 + 1/3 + 1/4 itd.\n");
                 decimal sum = 0;
-                for(int i = 0; i <= 20; i++)
+                for (int i = 0; i <= 20; i++)
                 {
                     if (i != 0)
                     {
@@ -163,19 +163,18 @@ while (run)
                 {
                     int spaces = diagonal / 2;
                     int stars = diagonal % 2;
-                    for(; stars < diagonal; spaces -= 1, stars += 2)
+                    for (; stars < diagonal; spaces -= 1, stars += 2)
                     {
                         Console.Write("\n\t");
                         for (int i = 0; i < spaces; i++) Console.Write("  ");
                         for (int i = 0; i < stars; i++) Console.Write("* ");
                     }
-                    for(; stars > 0; spaces += 1, stars -= 2)
+                    for (; stars > 0; spaces += 1, stars -= 2)
                     {
                         Console.Write("\n\t");
                         for (int i = 0; i < spaces; i++) Console.Write("  ");
                         for (int i = 0; i < stars; i++) Console.Write("* ");
                     }
-                    
                 }
                 else Console.WriteLine("   Nie udało się odczytać długości przekątnej.");
                 break;
@@ -226,7 +225,7 @@ while (run)
                     int remainder = dec;
                     string bin = "";
                     if (dec == 0) bin = "0";
-                    while(remainder > 0)
+                    while (remainder > 0)
                     {
                         bin = remainder % 2 + bin;
                         remainder /= 2;
@@ -246,7 +245,7 @@ while (run)
                 success &= int.TryParse(Console.ReadLine(), out int secondNumber);
                 if (success)
                 {
-                    if(firstNumber <= 0 || secondNumber <= 0)
+                    if (firstNumber <= 0 || secondNumber <= 0)
                     {
                         Console.WriteLine("   Podane liczby muszą być większe od zera.");
                         break;
